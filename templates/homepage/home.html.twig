@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+{% block body %}
+   <h1 class="display-5 p-3 mb-2 bg-primary text-white">BIENVENUE SUR LA PAGE</h1>
+   <div class="container">
+       <div class="row">
+            <label>Nom article</label>
+                <input type="text" class="form-control"/>
+            <label>Reference</label>
+                <input type="text" class="form-control"/>
+            <label>Quantité</label>
+                <input type="number" class="form-control"/>
+            <button class="btn btn-primary mt-2">Valider</button>
+       </div>
+   </div>
+  
+
+
+{% endblock %}
