@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+   <h1>Tous vos articles</h1>
+    <div class="container">
+       
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom article</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                 {% for key in article %}
+              <tr>
+                <th scope="row">{{key.id}}</th>
+                <td>{{key.Articlename}}</td>
+                <td>{{key.Reference}}</td>
+                <td>{{key.Quantity}}</td>
+              </tr>
+             {% endfor %}
+            </tbody>
+          </table>
+        
+    </div>
+{% endblock %}
