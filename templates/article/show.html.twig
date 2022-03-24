@@ -25,4 +25,10 @@
           </table>
         
     </div>
+    <div>
+      {% for cle in info %}
+           <p>{{cle.nom}}</p>
+           <p>{{cle.prenom}}</p>
+      {% endfor %}
+    </div>
 {% endblock %}

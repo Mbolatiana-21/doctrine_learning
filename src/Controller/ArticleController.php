@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use App\Entity\Info;
 use Doctrine\Persistence\ManagerRegistry;
 
 
@@ -41,13 +42,14 @@ class ArticleController extends AbstractController
      public function show(ManagerRegistry $doctrine): Response
      {
          $article = $doctrine->getRepository(Article::class)->findAll();
-
+      
          if (!$article) {
              throw $this->createNotFoundException(
                  'No product find' 
              );
          }
-         return $this->render('article/show.html.twig' , ['article' => $article]);
+         return $this->render('article/show.html.twig' ,
+          ['article' => $article]);
      }
 
 
