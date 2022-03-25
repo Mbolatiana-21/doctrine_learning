@@ -1,25 +1,56 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'foundation_5_layout.html.twig' %}
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
 {% block body %}
    <h1 class="display-5 p-3 mb-2 bg-primary text-white">BIENVENUE SUR LA PAGE</h1>
-   <div class="container">
-       <div class="row">
-            <label>Nom article</label>
-                <input type="text" class="form-control"/>
-            <label>Reference</label>
-                <input type="text" class="form-control"/>
-            <label>Quantité</label>
-                <input type="number" class="form-control"/>
-            <button class="btn btn-primary mt-2">Valider</button>
-       </div>
-       <div>
-           {{form(form)}}
-       </div>
-   </div>
+ 
+       
+            <div class="container mt-3">
+                {{ form_start(form)}}
+                <div class="form-control">
+                    {{ form_label(form.articlename) }}
+                    {{ form_widget(form.articlename) }}
+              
+                    {{ form_label(form.reference) }}
+                    {{ form_widget(form.reference) }}
+                
+                    {{ form_label(form.quantity) }}
+                    {{ form_widget(form.quantity) }}
+                
+                    {{ form_label(form.save) }}
+                    {{ form_widget(form.save) }}
+
+                </div>
+                {{ form_end(form)}}
+
+                
+        <table class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom article</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                 {% for key in home %}
+              <tr>
+                <th scope="row">{{key.id}}</th>
+                <td>{{key.articlename}}</td>
+                <td>{{key.reference}}</td>
+                <td>{{key.quantity}}</td>
+              </tr>
+             {% endfor %}
+            </tbody>
+          </table>
+        
+            </div>
+      
+
   
 
 
